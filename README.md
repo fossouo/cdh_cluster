@@ -8,6 +8,8 @@ $ docker pull dfossouo/cdh-yarnmaster
 
 $ docker pull dfossouo/cdh-datanode
 
+$ docker pull dfossouo/cdh-edge
+
 2. Create CDH Network
 
 $ docker network create cdh_network
@@ -22,7 +24,7 @@ $ docker run -d --net cdh_network --net-alias cdh-yarnmaster -p 8088:8088 -p 803
 
 5. Start DataNode 
 
-$ docker run -d --net cdh_network --net-alias cdh-datanode --link cdh-namenode --link yarnmaster -p 50020:50020 -p 50075:50075 -p 8042:8042 dfossouo/cdh-datanode
+$ docker run -d --net cdh_network --net-alias cdh-datanode -h datanode --link cdh-namenode --link yarnmaster -p 50020:50020 -p 50075:50075 -p 8042:8042 dfossouo/cdh-datanode
 
 6. Launch Edge Node 
 
