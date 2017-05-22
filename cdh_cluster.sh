@@ -22,7 +22,7 @@ docker run -d --net cloudera_network --net-alias cdh-namenode -p 8020:8020 dfoss
 
 #4. Start YARN
 
-docker run -d --net cloudera_network --net-alias cdh-yarnmaster -p 8088:8088 -p 8032:8032 dfossouo/cloudera-yarn:5.9.0
+docker run -d --net cloudera_network --net-alias cdh-yarn -p 8088:8088 -p 8032:8032 dfossouo/cloudera-yarn:5.9.0
 
 #5. Start DataNode
 
