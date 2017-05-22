@@ -38,4 +38,6 @@ $ docker run -d --net cdh_network -p 8088:8088 -p 8032:8032 dfossouo/cdh-yarnmas
 
 $ docker run -d --net cdh_network -p 50020:50020 -p 50075:50075 -p 8042:8042 dfossouo/cdh-datanode
 
-6. 
+6. Launch Edge Node 
+
+$ docker exec -ti --net cdh_network dfossouo/cdh-edge bash
