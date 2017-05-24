@@ -23,13 +23,24 @@ services:
       - "50020:50020"
       - "50075:50075"
       - "8042:8042"
+   links:
+      - cloudera-namenode
+      - cloudera-yarn
    networks:
       - cloudera-network
       - cloudera-namenode
       - cloudera-yarn
  cloudera-edge:
    image: dfossouo/cloudera-edge:5.9.0
+   links:
+       - cloudera-namenode
+       - cloudera-yarn
    networks:
       - cloudera-network
       - cloudera-namenode
       - cloudera-yarn
+   command: bash
+networks:
+ cloudera-network:
+ cloudera-namenode:
+ cloudera-yarn:
