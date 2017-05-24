@@ -31,5 +31,9 @@ $ docker run -ti --net cloudera_network --net-alias cloudera-edge --link cdh-nam
 
 You can use a swarm cluster with the docker-compose.yml
 
-docker-compose up --build -d
+$ docker-compose up --build -d
+
+After that launch the client node :
+docker run -ti --net cloudera_network --net-alias cloudera-edge --link cdh-namenode --link cdh-yarnmaster dfossouo/cloudera-edge:5.9.0 bash
+
 #docker stack deploy --compose-file docker-compose.yml cdh_ML
