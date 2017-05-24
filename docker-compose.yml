@@ -7,40 +7,32 @@ services:
    ports:
       - "8020:8020"
    networks:
-      - cloudera-network
-      - cloudera-namenode
+     cloudera-network:
+      aliases:
+       - cdh-namenode
  cloudera-yarn:
    image: dfossouo/cloudera-yarn:5.9.0
    ports:
       - "8088:8088"
       - "8032:8032"
    networks:
-      - cloudera-network
-      - cloudera-yarn
+     cloudera-network:
+      aliases:
+       - cdh-yarn
  cloudera-datanode:
    image: dfossouo/cloudera-datanode:5.9.0
    ports:
       - "50020:50020"
       - "50075:50075"
       - "8042:8042"
-   links:
-      - cloudera-namenode
-      - cloudera-yarn
    networks:
       - cloudera-network
-      - cloudera-namenode
-      - cloudera-yarn
  cloudera-edge:
    image: dfossouo/cloudera-edge:5.9.0
-   links:
-       - cloudera-namenode
-       - cloudera-yarn
    networks:
       - cloudera-network
-      - cloudera-namenode
-      - cloudera-yarn
    command: bash
 networks:
  cloudera-network:
- cloudera-namenode:
- cloudera-yarn:
+ cdh-namenode:
+ cdh-yarn:
