@@ -26,3 +26,10 @@ $ docker run -d --net cloudera_network --net-alias cloudera-datanode -h datanode
 6. Launch Edge Node 
 
 $ docker run -ti --net cloudera_network --net-alias cloudera-edge --link cdh-namenode --link cdh-yarnmaster dfossouo/cloudera-edge:5.9.0 bash
+
+
+
+You can use a swarm cluster with the docker-compose.yml
+
+docker-compose up --build -d
+#docker stack deploy --compose-file docker-compose.yml cdh_ML

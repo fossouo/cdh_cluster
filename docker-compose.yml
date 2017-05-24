@@ -34,5 +34,3 @@ services:
    command: bash
 networks:
  cloudera-network:
- cdh-namenode:
- cdh-yarn:
