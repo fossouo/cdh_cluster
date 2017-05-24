@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+
+ cloudera-namenode:
+   image: dfossouo/cloudera-namenode:5.9.0
+   ports:
+      - "8020:8020"
+   networks:
+      - cloudera-network
+      - cloudera-namenode
+ cloudera-yarn:
+   image: dfossouo/cloudera-yarn:5.9.0
+   ports:
+      - "8088:8088"
+      - "8032:8032"
+   networks:
+      - cloudera-network
+      - cloudera-yarn
+ cloudera-datanode:
+   image: dfossouo/cloudera-datanode:5.9.0
+   ports:
+      - "50020:50020"
+      - "50075:50075"
+      - "8042:8042"
+   networks:
+      - cloudera-network
+      - cloudera-namenode
+      - cloudera-yarn
+ cloudera-edge:
+   image: dfossouo/cloudera-edge:5.9.0
+   networks:
+      - cloudera-network
+      - cloudera-namenode
+      - cloudera-yarn
