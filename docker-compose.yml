@@ -3,7 +3,7 @@ version: '3'
 services:
 
  cloudera-namenode:
-   image: dfossouo/cloudera-namenode:5.9.0
+   image: dfossouo/cloudera-namenode-compose:5.9.0
    ports:
       - "8020:8020"
    networks:
@@ -11,7 +11,7 @@ services:
       aliases:
        - cdh-namenode
  cloudera-yarn:
-   image: dfossouo/cloudera-yarn:5.9.0
+   image: dfossouo/cloudera-yarn-compose:5.9.0
    ports:
       - "8088:8088"
       - "8032:8032"
@@ -20,7 +20,7 @@ services:
       aliases:
        - cdh-yarn
  cloudera-datanode:
-   image: dfossouo/cloudera-datanode:5.9.0
+   image: dfossouo/cloudera-datanode-compose:5.9.0
    ports:
       - "50020:50020"
       - "50075:50075"
@@ -28,7 +28,7 @@ services:
    networks:
       - cloudera-network
  cloudera-edge:
-   image: dfossouo/cloudera-edge:5.9.0
+   image: dfossouo/cloudera-edge-compose:5.9.0
    networks:
       - cloudera-network
    command: bash
