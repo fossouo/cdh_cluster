@@ -20,15 +20,23 @@ services:
       aliases:
        - cdh-yarn
  cloudera-datanode:
-   image: dfossouo/cloudera-datanode-compose:5.9.0
+   image: dfossouo/cloudera-datanode:5.9.0
    ports:
       - "50020:50020"
       - "50075:50075"
       - "8042:8042"
    networks:
       - cloudera-network
+ cloudera-datanode-2:
+   image: dfossouo/cloudera-datanode:5.9.0
+   ports:
+      - "50021:50020"
+      - "50076:50075"
+      - "8043:8042"
+   networks:
+      - cloudera-network
  cloudera-edge:
-   image: dfossouo/cloudera-edge-compose:5.9.0
+   image: dfossouo/cloudera-edge:5.9.0
    networks:
       - cloudera-network
    command: bash
