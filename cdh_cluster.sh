@@ -26,8 +26,9 @@ docker run -d --net cloudera-network --net-alias cdh-yarn -p 8088:8088 -p 8032:8
 
 #5. Start DataNode
 
-docker run -d --net cloudera-network --net-alias cloudera-datanode -h datanode --link cdh-namenode --link cdh-yarn -p 50020:50020 -p 50075:50075 -p 8042:8042 dfossouo/cloudera-datanode:5.9.0 
-
+docker run -d --net cloudera-network --net-alias cloudera-datanode-1 -h datanode_1 --link cdh-namenode --link cdh-yarn -p 50020:50020 -p 50075:50075 -p 8042:8042 dfossouo/cloudera-datanode:5.9.0
+docker run -d --net cloudera-network --net-alias cloudera-datanode-2 -h datanode_2 --link cdh-namenode --link cdh-yarn -p 50021:50020 -p 50076:50075 -p 8043:8042 dfossouo/cloudera-datanode:5.9.0
+docker run -d --net cloudera-network --net-alias cloudera-datanode-3 -h datanode_3 --link cdh-namenode --link cdh-yarn -p 50022:50020 -p 50077:50075 -p 8044:8042 dfossouo/cloudera-datanode:5.9.0
 #6. Launch Edge Node
 
 docker run -ti --net cloudera-network --net-alias cloudera-edge --link cdh-namenode --link cdh-yarn dfossouo/cloudera-edge:5.9.0 bash
