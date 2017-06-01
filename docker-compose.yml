@@ -37,6 +37,8 @@ services:
       - cloudera-network
  cloudera-edge:
    image: dfossouo/cloudera-edge-test:5.9.0
+   ports:
+      - "8888:8888"
    networks:
       - cloudera-network
 #   command: [hadoop fs -mkdir /cities,hadoop fs -put cities.csv /cities,hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar wordcount /cities/cities.csv /wordcount]
